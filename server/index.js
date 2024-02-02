@@ -9,7 +9,8 @@ import mongoose from 'mongoose';
 import router from './router/index.js';
 
 const app = express()
-const PORT = process.env.PORT || 6000;
+// const PORT = process.env.PORT || 6000;
+const PORT = 5000;
 
 app.use(cookieParser());
 app.use(json());
@@ -22,7 +23,7 @@ app.use('/api', router)
 
 const start = async () => {
 	try {
-		// await mongoose.connect(process.env.DB_URL, {})
+		await mongoose.connect(process.env.DB_URL, {})
 		app.listen(PORT, () => console.log(`server started at ${PORT}`))
 		console.log('start')
 	} catch (error) {
