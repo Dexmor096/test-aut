@@ -1,15 +1,15 @@
 // import { Router } from 'express';
 
-const Router = require('express').Router;
-const userController = require('../controllers/user-controller');
+import { Router } from 'express';
+import { registration, login, logout, activate, refresh, getUsers } from '../controller/user-controller.js';
 
 const router = new Router()
 
-router.post('/registration', userController.registration);
-router.post('/login', userController.login);
-router.post('/logout', userController.logout);
-router.get('/activate/:link', userController.activate);
-router.get('/refresh', userController.refresh);
-router.get('/users', userController.getUsers);
+router.post('/registration', registration);
+router.post('/login', login);
+router.post('/logout', logout);
+router.get('/activate/:link', activate);
+router.get('/refresh', refresh);
+router.get('/users', getUsers);
 
-module.exports = router
+export default router

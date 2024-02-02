@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js --signal SIGKILL",
-    "start": "node startserver.js"
+    "start": "nodemon startserver.js"
   },
   "keywords": [],
   "author": "",
