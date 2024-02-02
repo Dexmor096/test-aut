@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon index.js --signal SIGKILL"
+    "dev": "nodemon index.js --signal SIGKILL",
+    "start": "node startserver.js"
   },
   "keywords": [],
   "author": "",
