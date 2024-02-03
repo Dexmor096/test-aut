@@ -10,6 +10,7 @@ const bcrypt = require('bcrypt')
 const uuid = require('uuid');
 const mailService = require('../service/mail-service.js');
 const UserDto = require('../dtos/user-dto.js');
+const tokenService = require('./token-service')
 
 
 class UserService {
@@ -25,7 +26,7 @@ class UserService {
 		await mailService.sendActivateMail( email, activationLink);
 
 		const userDto = new UserDto(user);
-		const tokens = tokenService.generateToken({ ...UserDto });
+		const tokens = tokenService.generateTokens({ ...UserDto });
 		await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
 		return {...tokens, user: userDto}
