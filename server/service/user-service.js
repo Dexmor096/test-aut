@@ -1,9 +1,16 @@
-import model from '../models/user-model.js';
-const UserModel = model;
-import bcrypt from 'bcrypt';
-import { v4 as uuid } from 'uuid';
-import mailService from '../service/mail-service.js';
-import UserDto from '../dtos/user-dto.js';
+// import model from '../models/user-model.js';
+// const UserModel = model;
+// import bcrypt from 'bcrypt';
+// import UserDto from '../dtos/user-dto.js';
+// import uuid from 'uuid';
+// import mailService from '../service/mail-service.js';
+
+const UserModel = require('../models/user-model.js')
+const bcrypt = require('bcrypt')
+const uuid = require('uuid');
+const mailService = require('../service/mail-service.js');
+const UserDto = require('../dtos/user-dto.js');
+
 
 class UserService {
 	 async registration(email, password) {
@@ -24,4 +31,5 @@ class UserService {
 		return {...tokens, user: userDto}
 	 }
 }
-export default new UserService()
+// export default new UserService()
+module.exports = new UserService()

@@ -1,5 +1,5 @@
-// const { Schema, model, default: mongoose } = require('mongoose')
-import { Schema, model } from 'mongoose';
+const { Schema, model } = require('mongoose')
+// import { Schema, model } from 'mongoose';
 
 const UserSchema = new Schema({
 	email: {type: String, unique: true, required: true},
@@ -8,5 +8,5 @@ const UserSchema = new Schema({
 	activationLink: {type: String}
 })
 
-// module.exports = model('User', UserSchema)
-export default model('User', UserSchema);
+module.exports = model('User', UserSchema)
+// export default model('User', UserSchema);

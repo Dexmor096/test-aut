@@ -10,4 +10,5 @@ class UserDto {
 
 }
 
-export default new UserDto()
+// export default new UserDto()
+module.exports = new UserDto();

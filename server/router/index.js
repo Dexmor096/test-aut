@@ -1,7 +1,7 @@
 // import { Router } from 'express';
-
-import { Router } from 'express';
-import userController from '../controllers/user-controller.js';
+// import userController from '../controllers/user-controller.js';
+const Router = require('express').Router;
+const userController = require('../controllers/user-controller.js')
 
 const router = new Router()
 
@@ -12,4 +12,5 @@ router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
 router.get('/users', userController.getUsers);
 
-export default router
+// export default router
+module.exports = router;
