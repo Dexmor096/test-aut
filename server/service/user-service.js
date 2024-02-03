@@ -31,12 +31,12 @@ class UserService {
 		return {...tokens, user: userDto}
 	 }
 	 async activate(activationLink) {
-		const user = await UserModel.findOne({activationLink})
+		const user = await UserModel.findOne(activationLink)
 		if(!user) {
-			throw new Error('Некорректная ссылка активации')
+			throw new Error(`Некорректная ссылка активации ${activationLink}`)
 		}
 		user.isActivated = true;
-		await user.save();
+		await user.save()
 	}
 }
 module.exports = new UserService()
