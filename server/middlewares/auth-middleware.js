@@ -1,7 +1,7 @@
 const ApiError = require('../exceptions/api-error');
 const tokenService = require('../service/token-service')
 
-module.exports = function (req, res, next) {
+module.exports = async function (req, res, next) {
     try {
         const authorizationHeader = req.headers.authorization;
         if(!authorizationHeader) {
@@ -9,9 +9,10 @@ module.exports = function (req, res, next) {
         }
         const accessToken = authorizationHeader.split(' ')[1];
         if(!accessToken) {
+            console.log(accessToken)
             return next(ApiError.UnauthorizedError())
         }
-        const userData = tokenService.validateAccessToken(accessToken);
+        const userData = await tokenService.validateAccessToken(accessToken);
         if(!userData) {
             return next(ApiError.UnauthorizedError())
         }
